@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.7fa08c0a.chunk.css",
-    "main.js": "/static/js/main.e11d0f95.chunk.js",
-    "main.js.map": "/static/js/main.e11d0f95.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.bc8e0942.js",
-    "runtime-main.js.map": "/static/js/runtime-main.bc8e0942.js.map",
-    "static/js/2.1d3ea18a.chunk.js": "/static/js/2.1d3ea18a.chunk.js",
-    "static/js/2.1d3ea18a.chunk.js.map": "/static/js/2.1d3ea18a.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.bf2850a0167b80bd11f53a980ef62616.js": "/precache-manifest.bf2850a0167b80bd11f53a980ef62616.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.7fa08c0a.chunk.css.map": "/static/css/main.7fa08c0a.chunk.css.map",
-    "static/js/2.1d3ea18a.chunk.js.LICENSE.txt": "/static/js/2.1d3ea18a.chunk.js.LICENSE.txt"
+    "main.css": "/http//amitashdot.github.io/mineSweeper/static/css/main.7fa08c0a.chunk.css",
+    "main.js": "/http//amitashdot.github.io/mineSweeper/static/js/main.a3ba7f03.chunk.js",
+    "main.js.map": "/http//amitashdot.github.io/mineSweeper/static/js/main.a3ba7f03.chunk.js.map",
+    "runtime-main.js": "/http//amitashdot.github.io/mineSweeper/static/js/runtime-main.767078a6.js",
+    "runtime-main.js.map": "/http//amitashdot.github.io/mineSweeper/static/js/runtime-main.767078a6.js.map",
+    "static/js/2.1d3ea18a.chunk.js": "/http//amitashdot.github.io/mineSweeper/static/js/2.1d3ea18a.chunk.js",
+    "static/js/2.1d3ea18a.chunk.js.map": "/http//amitashdot.github.io/mineSweeper/static/js/2.1d3ea18a.chunk.js.map",
+    "index.html": "/http//amitashdot.github.io/mineSweeper/index.html",
+    "precache-manifest.cc50b76a4d54cbd59d993d38c8d284e9.js": "/http//amitashdot.github.io/mineSweeper/precache-manifest.cc50b76a4d54cbd59d993d38c8d284e9.js",
+    "service-worker.js": "/http//amitashdot.github.io/mineSweeper/service-worker.js",
+    "static/css/main.7fa08c0a.chunk.css.map": "/http//amitashdot.github.io/mineSweeper/static/css/main.7fa08c0a.chunk.css.map",
+    "static/js/2.1d3ea18a.chunk.js.LICENSE.txt": "/http//amitashdot.github.io/mineSweeper/static/js/2.1d3ea18a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.bc8e0942.js",
+    "static/js/runtime-main.767078a6.js",
     "static/js/2.1d3ea18a.chunk.js",
     "static/css/main.7fa08c0a.chunk.css",
-    "static/js/main.e11d0f95.chunk.js"
+    "static/js/main.a3ba7f03.chunk.js"
   ]
 }
