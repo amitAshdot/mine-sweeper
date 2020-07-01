@@ -19,7 +19,7 @@ const Board = props => {
 
     useEffect(() => {
         dispatch(loading());
-        dispatch(buildBoard(20, 1));
+        dispatch(buildBoard(9, 1));
         dispatch(loading());
 
         return () => null

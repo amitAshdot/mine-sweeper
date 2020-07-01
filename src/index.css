@@ -16,7 +16,6 @@
   text-align: center;
   min-height: 100vh;
   justify-content: space-evenly;
-
 }
 
 .loading {
@@ -25,7 +24,6 @@
   transform: translate(-50%, -50%);
   position: absolute; */
 }
-
 
 /* ------------ game ------------ */
 .stats {
@@ -86,7 +84,6 @@
 button.startOverBtn {
   padding: 2rem 3rem;
   font-size: 1.5rem;
-
 }
 
 .failed h3 {
