@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/mine-sweeper/static/css/main.8878c928.chunk.css",
-    "main.js": "/mine-sweeper/static/js/main.caef8eec.chunk.js",
-    "main.js.map": "/mine-sweeper/static/js/main.caef8eec.chunk.js.map",
+    "main.css": "/mine-sweeper/static/css/main.99339d34.chunk.css",
+    "main.js": "/mine-sweeper/static/js/main.f12591d7.chunk.js",
+    "main.js.map": "/mine-sweeper/static/js/main.f12591d7.chunk.js.map",
     "runtime-main.js": "/mine-sweeper/static/js/runtime-main.760986ba.js",
     "runtime-main.js.map": "/mine-sweeper/static/js/runtime-main.760986ba.js.map",
     "static/js/2.56a1ad37.chunk.js": "/mine-sweeper/static/js/2.56a1ad37.chunk.js",
     "static/js/2.56a1ad37.chunk.js.map": "/mine-sweeper/static/js/2.56a1ad37.chunk.js.map",
     "index.html": "/mine-sweeper/index.html",
-    "precache-manifest.cfa9f1e1a87b9749b29a7b0c7950987f.js": "/mine-sweeper/precache-manifest.cfa9f1e1a87b9749b29a7b0c7950987f.js",
+    "precache-manifest.45e634269f0739b69576152a73d96879.js": "/mine-sweeper/precache-manifest.45e634269f0739b69576152a73d96879.js",
     "service-worker.js": "/mine-sweeper/service-worker.js",
-    "static/css/main.8878c928.chunk.css.map": "/mine-sweeper/static/css/main.8878c928.chunk.css.map",
+    "static/css/main.99339d34.chunk.css.map": "/mine-sweeper/static/css/main.99339d34.chunk.css.map",
     "static/js/2.56a1ad37.chunk.js.LICENSE.txt": "/mine-sweeper/static/js/2.56a1ad37.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.760986ba.js",
     "static/js/2.56a1ad37.chunk.js",
-    "static/css/main.8878c928.chunk.css",
-    "static/js/main.caef8eec.chunk.js"
+    "static/css/main.99339d34.chunk.css",
+    "static/js/main.f12591d7.chunk.js"
   ]
 }
