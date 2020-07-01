@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/http//amitashdot.github.io/mine-sweeper/static/css/main.7fa08c0a.chunk.css",
-    "main.js": "/http//amitashdot.github.io/mine-sweeper/static/js/main.3153a12e.chunk.js",
-    "main.js.map": "/http//amitashdot.github.io/mine-sweeper/static/js/main.3153a12e.chunk.js.map",
-    "runtime-main.js": "/http//amitashdot.github.io/mine-sweeper/static/js/runtime-main.95696595.js",
-    "runtime-main.js.map": "/http//amitashdot.github.io/mine-sweeper/static/js/runtime-main.95696595.js.map",
-    "static/js/2.1d3ea18a.chunk.js": "/http//amitashdot.github.io/mine-sweeper/static/js/2.1d3ea18a.chunk.js",
-    "static/js/2.1d3ea18a.chunk.js.map": "/http//amitashdot.github.io/mine-sweeper/static/js/2.1d3ea18a.chunk.js.map",
-    "index.html": "/http//amitashdot.github.io/mine-sweeper/index.html",
-    "precache-manifest.fbeb0cf305a9f2219feb2220a6767966.js": "/http//amitashdot.github.io/mine-sweeper/precache-manifest.fbeb0cf305a9f2219feb2220a6767966.js",
-    "service-worker.js": "/http//amitashdot.github.io/mine-sweeper/service-worker.js",
-    "static/css/main.7fa08c0a.chunk.css.map": "/http//amitashdot.github.io/mine-sweeper/static/css/main.7fa08c0a.chunk.css.map",
-    "static/js/2.1d3ea18a.chunk.js.LICENSE.txt": "/http//amitashdot.github.io/mine-sweeper/static/js/2.1d3ea18a.chunk.js.LICENSE.txt"
+    "main.css": "/http//amitAshdot.github.io/mine-sweeper/static/css/main.7fa08c0a.chunk.css",
+    "main.js": "/http//amitAshdot.github.io/mine-sweeper/static/js/main.d590488b.chunk.js",
+    "main.js.map": "/http//amitAshdot.github.io/mine-sweeper/static/js/main.d590488b.chunk.js.map",
+    "runtime-main.js": "/http//amitAshdot.github.io/mine-sweeper/static/js/runtime-main.2cee2f58.js",
+    "runtime-main.js.map": "/http//amitAshdot.github.io/mine-sweeper/static/js/runtime-main.2cee2f58.js.map",
+    "static/js/2.1d3ea18a.chunk.js": "/http//amitAshdot.github.io/mine-sweeper/static/js/2.1d3ea18a.chunk.js",
+    "static/js/2.1d3ea18a.chunk.js.map": "/http//amitAshdot.github.io/mine-sweeper/static/js/2.1d3ea18a.chunk.js.map",
+    "index.html": "/http//amitAshdot.github.io/mine-sweeper/index.html",
+    "precache-manifest.db884f607a62c83d680eb068c4a3d684.js": "/http//amitAshdot.github.io/mine-sweeper/precache-manifest.db884f607a62c83d680eb068c4a3d684.js",
+    "service-worker.js": "/http//amitAshdot.github.io/mine-sweeper/service-worker.js",
+    "static/css/main.7fa08c0a.chunk.css.map": "/http//amitAshdot.github.io/mine-sweeper/static/css/main.7fa08c0a.chunk.css.map",
+    "static/js/2.1d3ea18a.chunk.js.LICENSE.txt": "/http//amitAshdot.github.io/mine-sweeper/static/js/2.1d3ea18a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.95696595.js",
+    "static/js/runtime-main.2cee2f58.js",
     "static/js/2.1d3ea18a.chunk.js",
     "static/css/main.7fa08c0a.chunk.css",
-    "static/js/main.3153a12e.chunk.js"
+    "static/js/main.d590488b.chunk.js"
   ]
 }
