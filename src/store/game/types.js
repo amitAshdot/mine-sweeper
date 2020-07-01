@@ -1,0 +1,9 @@
+export const gameTypes = {
+    //GAME
+    TIME: 'TIME',
+    CHANGE_LEVEL: 'CHANGE_LEVEL',
+    CHANGE_SIZE: "CHANGE_SIZE",
+    RESTART_GAME: "RESTART_GAME",
+    PAUSE: 'PAUSE',
+    LOADING: 'LOADING',
+}
