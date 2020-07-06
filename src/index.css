@@ -16,6 +16,7 @@
   text-align: center;
   min-height: 100vh;
   justify-content: space-evenly;
+  height: 100vh;
 }
 
 .loading {
@@ -23,6 +24,12 @@
   top: 50vh;
   transform: translate(-50%, -50%);
   position: absolute; */
+}
+
+body,
+button,
+div {
+  -webkit-touch-callout: none !important;
 }
 
 /* ------------ game ------------ */
@@ -64,6 +71,8 @@
 .cell {
   border: 1px solid black;
   align-items: center;
+  min-height: 35px;
+  min-width: 35px;
 }
 
 /* ------------ failed ------------ */
@@ -99,10 +108,37 @@ button.settingBtn {
   margin: 1rem 3rem;
 }
 
-.mine-btn {
-  font-size: 20px;
-  width: 100%;
-  height: 100%;
+.cell button {
+  font-size: 0;
+  font-weight: 800;
+  min-height: 100%;
+  min-width: 100%;
+  padding: 0;
+  background-color: #998fd0;
+  font-size: 0;
+  transition: all 0.5s;
+}
+
+button.btn.flag {
+  font-size: 2.5rem;
+  transform: rotate(360deg);
+  color: #e50808;
+  background-color: #484362;
+}
+button.btn.question {
+  transform: rotate(720deg);
+  font-size: 2.5rem;
+  color: #dbce23;
+  background-color: #484362;
+}
+
+button:disabled,
+button[disabled],
+button[disabled].btn.question,
+button[disabled].btn.flag,
+button[disabled].btn.regular {
+  font-size: 2.5rem;
+  background-color: #d1c8ffc9;
 }
 
 .btn-choices {
@@ -110,14 +146,6 @@ button.settingBtn {
   left: 50%;
   transform: translate(-50%, -50%);
   position: absolute;
-}
-
-.cell button {
-  font-size: 25px;
-  font-weight: 800;
-  min-height: 35px;
-  min-width: 35px;
-  padding: 0;
 }
 
 .aboutToChange-background {

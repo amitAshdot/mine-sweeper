@@ -2,12 +2,13 @@ import { boardTypes } from './types';
 
 const initialState = {
     board: [],
-    amountOfMines: 0,
+    amountOfMines: 5, // higher number than 0 for initial
     lvl: 1,
-    size: 20,
+    size: 9,
     fail: 0,
-    // time: 0,
-    // pause: 1,
+    time: 0,
+    pause: 0,
+    finish: 0,
 };
 
 const boardReducer = (state = initialState, action) => {
@@ -31,7 +32,7 @@ const boardReducer = (state = initialState, action) => {
             let tempCell = state.board[row].filter(obj => { // filter and get the specific cell
                 return obj.id === `${row}|${collumn}`
             })
-            debugger
+
             if (tempCell[0].mark !== 1) { // if the call is flag - dont change anything
                 tempCell[0].open = true
                 tempBoard[row][collumn] = { ...tempBoard[row][collumn], open: true }
@@ -47,43 +48,44 @@ const boardReducer = (state = initialState, action) => {
             let tempCellRIGHT = state.board[rowRIGHT].filter(obj => {
                 return obj.id === `${rowRIGHT}|${collumnRIGHT}`
             })
-            tempCellRIGHT[0].mark += 1; // 0 = null , 1 = flag , 2 = question mark
+            tempCellRIGHT[0].mark += 1; // 0 = null, 1 = flag, 2 = question mark
             if (tempCellRIGHT[0].mark > 2)
                 tempCellRIGHT[0].mark = 0;
 
             tempDoubleBoard[rowRIGHT][collumnRIGHT] = { ...tempDoubleBoard[rowRIGHT][collumnRIGHT], mark: tempCellRIGHT[0].mark }
-
             return { ...state, board: tempDoubleBoard };
 
-        case boardTypes.CHECK_CELL:
+        case boardTypes.CHECK_CELL: //get new matrix and update state
             return { ...state, board: action.payload }
 
-        case boardTypes.REDUCE_MINE_LEFT:
+        case boardTypes.REDUCE_MINE_LEFT: // decrease amount of mine left in the game
             return { ...state, amountOfMines: state.amountOfMines - 1 }
 
-        case boardTypes.INCREASE_MINE_LEFT:
+        case boardTypes.INCREASE_MINE_LEFT:// increase amount of mine left in the game
             return { ...state, amountOfMines: state.amountOfMines + 1 }
 
 
         //------------------GAME------------------------
 
-        case boardTypes.TIME:
+        case boardTypes.TIME: // timer for each game
             const newTime = state.time + 1
             return { ...state, time: newTime }
 
-        case boardTypes.RESTART_GAME:
+        case boardTypes.RESTART_GAME: // reset time
             const reTime = 0
             return { ...state, time: reTime }
 
-        case boardTypes.PAUSE:
+        case boardTypes.PAUSE: // pause will stop tmer
             const pause = action.payload
             return { ...state, pause: pause }
 
-        case boardTypes.FAILED:
+        case boardTypes.FAILED: // game end.
             const failed = 1
-            debugger
             return { ...state, fail: failed }
 
+        case boardTypes.FINISH: // game end.
+            const finished = 1
+            return { ...state, finish: finished }
 
 
         default:

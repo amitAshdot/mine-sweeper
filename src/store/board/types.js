@@ -16,5 +16,6 @@ export const boardTypes = {
     RESTART_GAME: "RESTART_GAME",
     PAUSE: 'PAUSE',
     FAILED: 'FAILED',
+    FINISH: 'FINISH'
 };
 

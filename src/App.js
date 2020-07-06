@@ -19,7 +19,7 @@ function App() {
   const checkPage = () => {
     let page = null
     if (settings.pause === 1)
-      page = <div><Settings />PAUSE </div>
+      page = <div><Settings />PAUSED </div>
 
     if (settings.pause === 0)
       page = <div><Settings /> <Board /> </div>
@@ -29,6 +29,9 @@ function App() {
 
     if (board.fail === 1)
       page = <Failed />
+
+    if (board.finish === 1)
+      page = <h1>you did it!! you stayed alive!</h1>
 
     return page
   }

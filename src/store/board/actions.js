@@ -3,7 +3,7 @@ import { boardTypes } from './types';
 //------------------GENERAL CELL ACTIONS------------------------
 export const cellClicked = (cellId) => {
     const res = cellId.split("|");
-    failed();
+
     return {
         type: boardTypes.CLICKED,
         action: res
@@ -43,9 +43,9 @@ export const checkCell = (cellId, mat) => {
     const res = cellId.split("|");
     const row = parseInt(res[0]), col = parseInt(res[1])
     let tempMat = mat;
-    if (mat[res[0]][res[1]].value === 0) {
+    if (mat[res[0]][res[1]].value === 0 && mat[res[0]][res[1]].mark !== 1) {
         try {
-            if (!tempMat[row - 1][col].open) { // UP
+            if (!tempMat[row - 1][col].open && tempMat[row - 1][col].mark !== 1) { // UP
                 tempMat[row - 1][col].open = true
                 if (tempMat[row - 1][col].value === 0) {
                     recCheckCell(tempMat[row - 1][col], tempMat)
@@ -55,7 +55,7 @@ export const checkCell = (cellId, mat) => {
             //out of board
         }
         try {
-            if (!tempMat[row + 1][col].open) { // DOWN
+            if (!tempMat[row + 1][col].open && tempMat[row + 1][col].mark !== 1) { // DOWN
                 tempMat[row + 1][col].open = true
                 if (tempMat[row + 1][col].value === 0) {
                     recCheckCell(tempMat[row + 1][col], tempMat)
@@ -65,7 +65,7 @@ export const checkCell = (cellId, mat) => {
             //out of board
         }
         try {
-            if (!tempMat[row][col - 1].open) { //LEFT
+            if (!tempMat[row][col - 1].open && tempMat[row][col - 1].mark !== 1) { //LEFT
                 tempMat[row][col - 1].open = true
                 if (tempMat[row][col - 1].value === 0) {
                     recCheckCell(tempMat[row][col - 1], tempMat)
@@ -75,7 +75,7 @@ export const checkCell = (cellId, mat) => {
             //out of board
         }
         try {
-            if (!tempMat[row][col + 1].open) { //RIGHT
+            if (!tempMat[row][col + 1].open && tempMat[row][col + 1].mark !== 1) { //RIGHT
                 tempMat[row][col + 1].open = true
                 if (tempMat[row][col + 1].value === 0) {
                     recCheckCell(tempMat[row][col + 1], tempMat)
@@ -85,7 +85,7 @@ export const checkCell = (cellId, mat) => {
             //out of board
         }
         try {
-            if (!tempMat[row - 1][col - 1].open) { //UP LEFT
+            if (!tempMat[row - 1][col - 1].open && tempMat[row - 1][col - 1].mark !== 1) { //UP LEFT
                 tempMat[row - 1][col - 1].open = true
                 if (tempMat[row - 1][col - 1].value === 0) {
                     recCheckCell(tempMat[row - 1][col - 1], tempMat)
@@ -95,7 +95,7 @@ export const checkCell = (cellId, mat) => {
             //out of board
         }
         try {
-            if (!tempMat[row - 1][col + 1].open) { //UP RIGHT
+            if (!tempMat[row - 1][col + 1].open && tempMat[row - 1][col + 1].mark !== 1) { //UP RIGHT
                 tempMat[row - 1][col + 1].open = true
                 if (tempMat[row - 1][col + 1].value === 0) {
                     recCheckCell(tempMat[row - 1][col + 1], tempMat)
@@ -105,7 +105,7 @@ export const checkCell = (cellId, mat) => {
             //out of board
         }
         try {
-            if (!tempMat[row + 1][col + 1].open) { //DOWN RIGHT
+            if (!tempMat[row + 1][col + 1].open && tempMat[row + 1][col + 1].mark !== 1) { //DOWN RIGHT
                 tempMat[row + 1][col + 1].open = true
                 if (tempMat[row + 1][col + 1].value === 0) {
                     recCheckCell(tempMat[row + 1][col + 1], tempMat)
@@ -115,7 +115,7 @@ export const checkCell = (cellId, mat) => {
             //out of board
         }
         try {
-            if (!tempMat[row + 1][col - 1].open) { //DOWN LEFT
+            if (!tempMat[row + 1][col - 1].open && tempMat[row + 1][col - 1].mark !== 1) { //DOWN LEFT
                 tempMat[row + 1][col - 1].open = true
                 if (tempMat[row + 1][col - 1].value === 0) {
                     recCheckCell(tempMat[row + 1][col - 1], tempMat)
@@ -125,12 +125,13 @@ export const checkCell = (cellId, mat) => {
             //out of board
         }
     }
-    else if (mat[res[0]][res[1]].value >= 15) {
+
+    else if (mat[res[0]][res[1]].value >= 15 && mat[res[0]][res[1]].mark !== 1) {
+        debugger
         return {
             type: boardTypes.FAILED,
         };
     }
-
 
     return {
         type: boardTypes.CHECK_CELL,
@@ -142,7 +143,7 @@ export const checkCell = (cellId, mat) => {
 export const buildBoard = (size, lvl) => {
     //lvl = easy : 20% mines , medium : 50% , hard :80%
     // size = 9x9 , 5x5 , 12x12 , 20x20
-    const amountOfMines = lvl === 1 ? 0.1 * size * size : lvl === 2 ? 0.5 * size * size : 0.8 * size * size
+    const amountOfMines = lvl === 1 ? 0.05 * size * size : lvl === 2 ? 0.5 * size * size : 0.8 * size * size
     let matrix = [], mineLeft = amountOfMines;
 
     for (let i = 0; i < size; i++) {
@@ -151,8 +152,7 @@ export const buildBoard = (size, lvl) => {
             matrix[i][j] = { id: `${i}|${j}`, mine: false, open: false, value: 0, mark: 0 };
         }
     }
-
-    while (mineLeft) {
+    while (!(mineLeft <= 1)) {
         let randomLine = Math.floor(Math.random() * size), randomCol = Math.floor(Math.random() * size)
         if (!matrix[randomLine][randomCol].mine) { //if the cell is mine - find a new cell
             matrix[randomLine][randomCol] = { id: `${randomLine}|${randomCol}`, mine: true, open: false, value: 15, mark: 0 };
@@ -246,28 +246,56 @@ const checkAndSetCloseToMine = (mat, size) => {
 
 //------------------GAME------------------------
 
-export const time = () => {
-    return {
-        type: boardTypes.TIME,
-    };
-};
+// export const time = () => {
+//     return {
+//         type: boardTypes.TIME,
+//     };
+// };
 
-export const resetSettings = () => {
-    return {
-        type: boardTypes.RESTART_GAME,
-    };
-};
+// export const resetSettings = () => {
+//     return {
+//         type: boardTypes.RESTART_GAME,
+//     };
+// };
 
-export const pause = (pauseFlag) => {
-    const pause = pauseFlag === 1 ? 0 : 1
-    return {
-        type: boardTypes.PAUSE,
-        payload: pause
-    };
-};
+// export const pause = (pauseFlag) => {
+//     const pause = pauseFlag === 1 ? 0 : 1
+//     return {
+//         type: boardTypes.PAUSE,
+//         payload: pause
+//     };
+// };
 
 export const failed = () => {
     return {
         type: boardTypes.FAILED,
+    };
+};
+
+
+export const finish = (mat) => {
+    let notFinish = 0;
+    mat.map(row => {
+        row.map(cell => {
+            if (cell.mine) {
+                if (!cell.mark == 1)
+                    notFinish = 1
+            }
+        })
+    })
+
+    if (!notFinish) {
+        console.log('perfect!')
+        return {
+            type: boardTypes.FINISH,
+        };
+    }
+    else {
+        console.log('there is a fals flag!!')
+
+    }
+
+    return {
+        type: boardTypes.EMPTY,
     };
 };

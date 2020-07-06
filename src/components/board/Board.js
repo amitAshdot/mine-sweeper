@@ -4,6 +4,7 @@ import {
     buildBoard,
     cellClicked,
     cellRightClick,
+    finish,
     // resetCounter,
 } from '../../store/board/actions';
 import {
@@ -19,12 +20,17 @@ const Board = props => {
 
     useEffect(() => {
         dispatch(loading());
-        dispatch(buildBoard(9, 1));
+        dispatch(buildBoard(board.size, 1));
         dispatch(loading());
 
         return () => null
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+
+    useEffect(() => {
+        if (board.amountOfMines <= 1)
+            dispatch(finish(board.board));
+    }, [board.amountOfMines])
 
     const boardTemplate = board.board.map((row, key) => {
         return (

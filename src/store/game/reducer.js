@@ -2,7 +2,7 @@ import { gameTypes } from './types';
 
 const initialState = {
     lvl: 1,
-    size: 20,
+    size: 9,
     time: 0,
     pause: 0,
     restart: 0,

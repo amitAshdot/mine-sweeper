@@ -18,11 +18,11 @@ const Settings = () => {
 
     useEffect(() => {
         let interval = null;
-        if (!settings.pause)
-            // interval = setInterval(() => {
-            //     dispatch(time());
-            // }, 1000);
-            return () => clearInterval(interval);
+        // if (!settings.pause)
+        //     interval = setInterval(() => {
+        //         dispatch(time());
+        //     }, 1000);
+        return () => clearInterval(interval);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [settings.pause])
 
@@ -39,7 +39,7 @@ const Settings = () => {
                 </div>
 
                 <div className="stats-minesLeft">
-                    {board.amountOfMines}
+                    {parseFloat(board.amountOfMines).toFixed(0)}
                 </div>
             </div>
             <GamepadButton text={'Pause'} onclick={() => dispatch(pause(settings.pause))} />
