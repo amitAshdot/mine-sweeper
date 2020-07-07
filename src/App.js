@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 import './App.css';
@@ -8,16 +8,13 @@ import Failed from './components/screen/Failed'
 import Success from './components/screen/Success';
 
 import ChangeSettings from './components/game/ChangeSettings'
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 function App() {
   const settings = useSelector(state => state.setting);
   const board = useSelector(state => state.board);
 
   const checkPage = () => {
     let page = null
-    // if (settings.pause === 1)
-    //   page = <div>pause</div>
-
     if (board.fail === 1)
       page = <Failed />
 

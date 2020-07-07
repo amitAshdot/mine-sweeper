@@ -3,17 +3,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import Slider from '@material-ui/core/Slider';
 import GamepadButton from '../buttons/GameBtn'
 import {
-    buildBoard,
-    cellClicked,
-    cellRightClick,
-    finish,
     saveChange,
-    // resetCounter,
 } from '../../store/board/actions';
 import {
     pause,
     changeSettings
-    // resetCounter,
 } from '../../store/game/actions';
 const ChangeSettings = () => {
     const settings = useSelector(state => state.setting);

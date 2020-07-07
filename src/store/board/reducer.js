@@ -3,6 +3,7 @@ import { boardTypes } from './types';
 const initialState = {
     board: [],
     amountOfMines: 5, // higher number than 0 for initial
+    amountCellShouldBeOpen: 78,
     lvl: 1,
     size: 9,
     fail: 0,
@@ -38,6 +39,7 @@ const boardReducer = (state = initialState, action) => {
                 tempCell[0].open = true
                 tempBoard[row][collumn] = { ...tempBoard[row][collumn], open: true }
                 const newAmountOpen = state.amountCellShouldBeOpen - 1
+                debugger
                 return { ...state, board: tempBoard, amountCellShouldBeOpen: newAmountOpen };
             }
             else

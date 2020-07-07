@@ -71,6 +71,7 @@ const MineButton = (props) => {
                 case 0: // touch mobile
                     dispatch(cellClicked(props.cell.id));
                     dispatch(checkCell(props.cell.id, props.board.board));
+                    // if (board.amountOfMines === 0)
                     dispatch(finish(board.board, board.size, board.amountOfMines));
 
                     break;
@@ -78,6 +79,7 @@ const MineButton = (props) => {
                 case 1: // left click
                     dispatch(cellClicked(props.cell.id));
                     dispatch(checkCell(props.cell.id, props.board.board));
+                    // if (board.amountOfMines === 0)
                     dispatch(finish(board.board, board.size, board.amountOfMines));
 
                     break;

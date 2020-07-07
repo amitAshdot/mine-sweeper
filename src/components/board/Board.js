@@ -9,14 +9,11 @@ import {
 } from '../../store/board/actions';
 import {
     loading
-    // resetCounter,
 } from '../../store/game/actions';
 import MineButton from '../buttons/MineButton';
 
 const Board = props => {
-
     const board = useSelector(state => state.board);
-    const settings = useSelector(state => state.setting);
     const dispatch = useDispatch();
 
     useEffect(() => {

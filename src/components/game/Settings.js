@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import GamepadButton from '../buttons/GameBtn'
 import { useSelector, useDispatch } from 'react-redux';
 import Button from '@material-ui/core/Button';
@@ -6,7 +6,6 @@ import Button from '@material-ui/core/Button';
 import {
     changeSettings,
     time,
-    loading,
     pause,
     resetSettings,
 } from '../../store/game/actions';
@@ -17,7 +16,6 @@ const Settings = () => {
     const settings = useSelector(state => state.setting);
     const board = useSelector(state => state.board);
     const dispatch = useDispatch();
-    const [state, setstate] = useState({ close: 1 })
     useEffect(() => {
         let interval = null;
         if (!settings.pause)

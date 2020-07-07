@@ -256,21 +256,23 @@ export const resetBoard = () => {
     };
 };
 export const finish = (mat, boardSize, amountOfMines) => {
-    let notFinish = 0, amountOfOpenCells = 0, amountOfCells = boardSize * boardSize
+    let finish = 1, amountOfOpenCells = 0, amountOfCells = boardSize * boardSize
     const intvalue = Math.ceil(amountOfMines);
 
     mat.map(row => {
         row.map(cell => {
             if (cell.mine) {
-                if (!cell.mark == 1)
-                    notFinish = 1
+                debugger
+                if (cell.mark !== 1)
+                    finish = 0
             }
             else if (cell.open)
                 amountOfOpenCells++
         })
     })
+    debugger
     amountOfOpenCells = amountOfCells - amountOfOpenCells
-    if (!notFinish || intvalue === amountOfOpenCells) { // user put flag on all mines OR reviled all empty cells
+    if (finish || intvalue === amountOfOpenCells) { // user put flag on all mines OR reviled all empty cells
         return {
             type: boardTypes.FINISH,
         };
