@@ -8,14 +8,15 @@ export const boardTypes = {
     CHECK_CELL: 'CHECK_CELL',
     RESET: 'RESET',
     EMPTY: 'EMPTY',
+    SAVE_CHANGE: 'SAVE_CHANGE',
+
 
     //GAME
-    TIME: 'TIME',
     CHANGE_LEVEL: 'CHANGE_LEVEL',
     CHANGE_SIZE: "CHANGE_SIZE",
     RESTART_GAME: "RESTART_GAME",
-    PAUSE: 'PAUSE',
     FAILED: 'FAILED',
-    FINISH: 'FINISH'
+    FINISH: 'FINISH',
+    RESET: 'RESET'
 };
 

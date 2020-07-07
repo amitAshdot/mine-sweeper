@@ -127,7 +127,6 @@ export const checkCell = (cellId, mat) => {
     }
 
     else if (mat[res[0]][res[1]].value >= 15 && mat[res[0]][res[1]].mark !== 1) {
-        debugger
         return {
             type: boardTypes.FAILED,
         };
@@ -141,19 +140,20 @@ export const checkCell = (cellId, mat) => {
 
 //------------------BUILD------------------------
 export const buildBoard = (size, lvl) => {
-    //lvl = easy : 20% mines , medium : 50% , hard :80%
+    //lvl = easy : 12% mines , medium : 20% , hard :30%
     // size = 9x9 , 5x5 , 12x12 , 20x20
-    const amountOfMines = lvl === 1 ? 0.05 * size * size : lvl === 2 ? 0.5 * size * size : 0.8 * size * size
+    const amountOfMines = lvl === 1 ? Math.ceil(0.12 * size * size)
+        : lvl === 2 ? Math.ceil(0.2 * size * size)
+            : Math.ceil(0.30 * size * size)
     let matrix = [], mineLeft = amountOfMines;
-
     for (let i = 0; i < size; i++) {
         matrix[i] = [];
         for (let j = 0; j < size; j++) {
             matrix[i][j] = { id: `${i}|${j}`, mine: false, open: false, value: 0, mark: 0 };
         }
     }
-    while (!(mineLeft <= 1)) {
-        let randomLine = Math.floor(Math.random() * size), randomCol = Math.floor(Math.random() * size)
+    while (!(mineLeft === 0)) {
+        let randomLine = Math.ceil(Math.random() * size - 1), randomCol = Math.ceil(Math.random() * size - 1)
         if (!matrix[randomLine][randomCol].mine) { //if the cell is mine - find a new cell
             matrix[randomLine][randomCol] = { id: `${randomLine}|${randomCol}`, mine: true, open: false, value: 15, mark: 0 };
             mineLeft--
@@ -237,7 +237,7 @@ const checkAndSetCloseToMine = (mat, size) => {
                     }
                 }
             } catch (error) {
-                console.log(error, `row: ${i} , col: ${j}`, `object: ${mat[i][j - 1]}`)
+                //
             }
         }
     }
@@ -245,57 +245,47 @@ const checkAndSetCloseToMine = (mat, size) => {
 }
 
 //------------------GAME------------------------
-
-// export const time = () => {
-//     return {
-//         type: boardTypes.TIME,
-//     };
-// };
-
-// export const resetSettings = () => {
-//     return {
-//         type: boardTypes.RESTART_GAME,
-//     };
-// };
-
-// export const pause = (pauseFlag) => {
-//     const pause = pauseFlag === 1 ? 0 : 1
-//     return {
-//         type: boardTypes.PAUSE,
-//         payload: pause
-//     };
-// };
-
 export const failed = () => {
     return {
         type: boardTypes.FAILED,
     };
 };
+export const resetBoard = () => {
+    return {
+        type: boardTypes.RESET,
+    };
+};
+export const finish = (mat, boardSize, amountOfMines) => {
+    let notFinish = 0, amountOfOpenCells = 0, amountOfCells = boardSize * boardSize
+    const intvalue = Math.ceil(amountOfMines);
 
-
-export const finish = (mat) => {
-    let notFinish = 0;
     mat.map(row => {
         row.map(cell => {
             if (cell.mine) {
                 if (!cell.mark == 1)
                     notFinish = 1
             }
+            else if (cell.open)
+                amountOfOpenCells++
         })
     })
-
-    if (!notFinish) {
-        console.log('perfect!')
+    amountOfOpenCells = amountOfCells - amountOfOpenCells
+    if (!notFinish || intvalue === amountOfOpenCells) { // user put flag on all mines OR reviled all empty cells
         return {
             type: boardTypes.FINISH,
         };
     }
-    else {
-        console.log('there is a fals flag!!')
-
-    }
-
     return {
         type: boardTypes.EMPTY,
+    };
+};
+
+//------------------GENERAL------------------------
+
+export const saveChange = (size, lvl) => {
+    return {
+        type: boardTypes.SAVE_CHANGE,
+        size,
+        lvl
     };
 };

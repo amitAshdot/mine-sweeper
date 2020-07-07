@@ -16,20 +16,24 @@ import MineButton from '../buttons/MineButton';
 const Board = props => {
 
     const board = useSelector(state => state.board);
+    const settings = useSelector(state => state.setting);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(loading());
-        dispatch(buildBoard(board.size, 1));
-        dispatch(loading());
+        if (board.time === 0) {
+            dispatch(loading());
+            dispatch(buildBoard(board.size, board.lvl));
+            dispatch(loading());
+        }
+
 
         return () => null
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [board.lvl, board.size])
 
     useEffect(() => {
-        if (board.amountOfMines <= 1)
-            dispatch(finish(board.board));
+        if (board.amountOfMines === 0 || board.amountCellShouldBeOpen <= 1)
+            dispatch(finish(board.board, board.size, board.amountOfMines));
     }, [board.amountOfMines])
 
     const boardTemplate = board.board.map((row, key) => {
@@ -46,7 +50,6 @@ const Board = props => {
 
     return (
         <div>
-
             <div className="board">
                 {boardTemplate}
             </div>

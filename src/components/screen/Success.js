@@ -6,20 +6,22 @@ import {
     resetSettings,
 } from '../../store/game/actions';
 import {
-    buildBoard,
+    buildBoard, resetBoard
 } from '../../store/board/actions';
-const Failed = () => {
+const Success = () => {
     const board = useSelector(state => state.board);
     const dispatch = useDispatch();
 
     const restartAll = () => {
         dispatch(buildBoard(board.size, board.lvl));
         dispatch(resetSettings())
+        dispatch(resetBoard())
+
+
     }
     return (
-        <div className="failed">
-            <h2>YOU SUCK... AND DEAD!</h2>
-            <h3>game over! start over?</h3>
+        <div className="success">
+            <h1>you did it!! you stayed alive!</h1>
             <Button size="medium" variant="contained" color="primary" className="startOverBtn" onClick={restartAll}>
                 Play Again
             </Button>
@@ -27,4 +29,4 @@ const Failed = () => {
     )
 }
 
-export default Failed
+export default Success

@@ -1,9 +1,12 @@
 import React from 'react'
+import Button from '@material-ui/core/Button';
 
 const GameBtn = (props) => {
 
     return (
-        <button className="settingBtn" onClick={props.onclick} >{props.text}</button>
+        <Button size="small" variant="contained" color="primary" className='settingBtn' onClick={props.onclick}>
+            {props.text}
+        </Button>
     )
 }
 

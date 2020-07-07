@@ -1,19 +1,17 @@
 import { gameTypes } from './types';
 
 const initialState = {
-    lvl: 1,
-    size: 9,
     time: 0,
     pause: 0,
     restart: 0,
     success: 0,
     isLoading: 0,
+    settings: 0,
 };
 
 const boardReducer = (state = initialState, action) => {
     switch (action.type) {
         //------------------FLAGS------------------------
-
         case gameTypes.LOADING:
             const isLoading = !state.isLoading
             return { ...state, isLoading: isLoading }
@@ -42,6 +40,15 @@ const boardReducer = (state = initialState, action) => {
                 ...state,
                 pause: pause
             }
+
+        case gameTypes.SETTINGS:
+            const settings = action.payload
+            return {
+                ...state,
+                settings: settings
+            }
+
+
 
         default:
             return { ...state };

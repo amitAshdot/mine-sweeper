@@ -6,4 +6,5 @@ export const gameTypes = {
     RESTART_GAME: "RESTART_GAME",
     PAUSE: 'PAUSE',
     LOADING: 'LOADING',
+    SETTINGS: 'SETTINGS',
 }

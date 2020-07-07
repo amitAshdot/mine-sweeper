@@ -30,3 +30,12 @@ export const pause = (pauseFlag) => {
     };
 };
 
+
+
+export const changeSettings = (settingsFlag) => {
+    const settings = settingsFlag === 1 ? 0 : 1
+    return {
+        type: gameTypes.SETTINGS,
+        payload: settings
+    };
+};

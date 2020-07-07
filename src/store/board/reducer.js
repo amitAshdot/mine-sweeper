@@ -9,6 +9,7 @@ const initialState = {
     time: 0,
     pause: 0,
     finish: 0,
+    settings: 0,
 };
 
 const boardReducer = (state = initialState, action) => {
@@ -36,8 +37,8 @@ const boardReducer = (state = initialState, action) => {
             if (tempCell[0].mark !== 1) { // if the call is flag - dont change anything
                 tempCell[0].open = true
                 tempBoard[row][collumn] = { ...tempBoard[row][collumn], open: true }
-
-                return { ...state, board: tempBoard };
+                const newAmountOpen = state.amountCellShouldBeOpen - 1
+                return { ...state, board: tempBoard, amountCellShouldBeOpen: newAmountOpen };
             }
             else
                 return { ...state };
@@ -64,21 +65,13 @@ const boardReducer = (state = initialState, action) => {
         case boardTypes.INCREASE_MINE_LEFT:// increase amount of mine left in the game
             return { ...state, amountOfMines: state.amountOfMines + 1 }
 
-
+        case boardTypes.SAVE_CHANGE:
+            return {
+                ...state,
+                size: action.size,
+                lvl: action.lvl
+            }
         //------------------GAME------------------------
-
-        case boardTypes.TIME: // timer for each game
-            const newTime = state.time + 1
-            return { ...state, time: newTime }
-
-        case boardTypes.RESTART_GAME: // reset time
-            const reTime = 0
-            return { ...state, time: reTime }
-
-        case boardTypes.PAUSE: // pause will stop tmer
-            const pause = action.payload
-            return { ...state, pause: pause }
-
         case boardTypes.FAILED: // game end.
             const failed = 1
             return { ...state, fail: failed }
@@ -87,7 +80,8 @@ const boardReducer = (state = initialState, action) => {
             const finished = 1
             return { ...state, finish: finished }
 
-
+        case boardTypes.RESET: // game end.
+            return { ...state, finish: 0 }
         default:
             return { ...state };
     }
