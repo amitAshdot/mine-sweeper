@@ -1,24 +1,27 @@
 {
   "files": {
-    "main.css": "/mine-sweeper/static/css/main.a0bc6033.chunk.css",
-    "main.js": "/mine-sweeper/static/js/main.4781fc2d.chunk.js",
-    "main.js.map": "/mine-sweeper/static/js/main.4781fc2d.chunk.js.map",
+    "main.css": "/mine-sweeper/static/css/main.aea31a43.chunk.css",
+    "main.js": "/mine-sweeper/static/js/main.8f803170.chunk.js",
+    "main.js.map": "/mine-sweeper/static/js/main.8f803170.chunk.js.map",
     "runtime-main.js": "/mine-sweeper/static/js/runtime-main.760986ba.js",
     "runtime-main.js.map": "/mine-sweeper/static/js/runtime-main.760986ba.js.map",
-    "static/js/2.a9ceb887.chunk.js": "/mine-sweeper/static/js/2.a9ceb887.chunk.js",
-    "static/js/2.a9ceb887.chunk.js.map": "/mine-sweeper/static/js/2.a9ceb887.chunk.js.map",
+    "static/js/2.4242657e.chunk.js": "/mine-sweeper/static/js/2.4242657e.chunk.js",
+    "static/js/2.4242657e.chunk.js.map": "/mine-sweeper/static/js/2.4242657e.chunk.js.map",
     "index.html": "/mine-sweeper/index.html",
-    "precache-manifest.e3bf06a9c7e8b47cb5fa43e9df66df2e.js": "/mine-sweeper/precache-manifest.e3bf06a9c7e8b47cb5fa43e9df66df2e.js",
+    "precache-manifest.e09773c281e5b3e84df45a1b7b397fbc.js": "/mine-sweeper/precache-manifest.e09773c281e5b3e84df45a1b7b397fbc.js",
     "service-worker.js": "/mine-sweeper/service-worker.js",
-    "static/css/main.a0bc6033.chunk.css.map": "/mine-sweeper/static/css/main.a0bc6033.chunk.css.map",
-    "static/js/2.a9ceb887.chunk.js.LICENSE.txt": "/mine-sweeper/static/js/2.a9ceb887.chunk.js.LICENSE.txt",
-    "static/media/rsz_22553.png": "/mine-sweeper/static/media/rsz_22553.68aab075.png",
-    "static/media/rsz_ogmodh0.png": "/mine-sweeper/static/media/rsz_ogmodh0.9da60ef6.png"
+    "static/css/main.aea31a43.chunk.css.map": "/mine-sweeper/static/css/main.aea31a43.chunk.css.map",
+    "static/js/2.4242657e.chunk.js.LICENSE.txt": "/mine-sweeper/static/js/2.4242657e.chunk.js.LICENSE.txt",
+    "static/media/Tbadge-expert.png": "/mine-sweeper/static/media/Tbadge-expert.fbeacfa3.png",
+    "static/media/Tbadge-junior.png": "/mine-sweeper/static/media/Tbadge-junior.cb90856c.png",
+    "static/media/Tbadge-senior.png": "/mine-sweeper/static/media/Tbadge-senior.047cd48d.png",
+    "static/media/rsz_ogmodh0.png": "/mine-sweeper/static/media/rsz_ogmodh0.9da60ef6.png",
+    "static/media/transparent.png": "/mine-sweeper/static/media/transparent.fc1bdc17.png"
   },
   "entrypoints": [
     "static/js/runtime-main.760986ba.js",
-    "static/js/2.a9ceb887.chunk.js",
-    "static/css/main.a0bc6033.chunk.css",
-    "static/js/main.4781fc2d.chunk.js"
+    "static/js/2.4242657e.chunk.js",
+    "static/css/main.aea31a43.chunk.css",
+    "static/js/main.8f803170.chunk.js"
   ]
 }
