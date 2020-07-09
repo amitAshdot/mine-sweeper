@@ -10,6 +10,8 @@ import {
 } from '../../store/board/actions';
 const Success = () => {
     const board = useSelector(state => state.board);
+    const settings = useSelector(state => state.setting);
+
     const dispatch = useDispatch();
 
     const restartAll = () => {
@@ -19,9 +21,21 @@ const Success = () => {
 
 
     }
+    const minutes = Math.floor(settings.time / 60);
+    const seconds = settings.time - minutes * 60;
+
+    const timeText = (
+        minutes === 0 ?
+            <h2 className="sec-text">WOW! it took you only {seconds} seconds to finish! impresive! </h2>
+            :
+            <h2 className="sec-text">It took you {minutes} minutes and {seconds} seconds  to finish</h2>
+    )
     return (
         <div className="success">
-            <h1>you did it!! you stayed alive!</h1>
+            <h1>Well Done!</h1>
+            <h2 className="sec-text">You did it! You stayed alive!</h2>
+            {timeText}
+
             <Button size="medium" variant="contained" color="primary" className="startOverBtn" onClick={restartAll}>
                 Play Again
             </Button>

@@ -8,6 +8,7 @@ export const boardTypes = {
     CHECK_CELL: 'CHECK_CELL',
     EMPTY: 'EMPTY',
     SAVE_CHANGE: 'SAVE_CHANGE',
+    FLAG_TOGGLE: 'FLAG_TOGGLE',
 
 
     //GAME

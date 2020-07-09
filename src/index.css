@@ -17,6 +17,7 @@
   min-height: 100vh;
   justify-content: space-evenly;
   height: 100vh;
+  background-size: cover;
 }
 
 .loading {
@@ -38,9 +39,36 @@ div {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+/* ------------ welcome ------------ */
+h1.welcome-title {
+  bottom: 0;
+  /* margin-bottom: -80px; */
+  font-size: 3rem;
+}
+
+.welcome-img {
+  width: 45vw;
+  animation: 3s ease-out 0s 1 slideInFromBottom;
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    transform: scale(0);
+  }
+  20% {
+    transform: scale(1);
+  }
+  /* 80% {
+    transform: scale(1);
+  } */
+  100% {
+    transform: scale(1);
+  }
+}
 /* ------------ game ------------ */
 .stats {
   height: 7rem;
+  width: 30vw;
   font-size: 7.5rem;
   display: flex;
   place-content: space-evenly;
@@ -48,13 +76,57 @@ div {
 }
 
 .stats-time {
-  background-color: rebeccapurple;
+  background: rgb(64, 81, 181);
+  background: -moz-linear-gradient(
+    rgb(64, 81, 181) 0%,
+    rgb(64, 81, 181) 20%,
+    rgb(42, 54, 123) 70%,
+    rgb(23, 30, 69) 100%
+  );
+  background: -webkit-linear-gradient(
+    rgb(64, 81, 181) 0%,
+    rgb(64, 81, 181) 20%,
+    rgb(42, 54, 123) 70%,
+    rgb(23, 30, 69) 100%
+  );
+  background: linear-gradient(
+    rgb(64, 81, 181) 0%,
+    rgb(64, 81, 181) 20%,
+    rgb(42, 54, 123) 70%,
+    rgb(23, 30, 69) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#8400b9",endColorstr="#4a0962",GradientType=1);
+
+  color: #dbdada;
+
   padding: 0rem 3rem;
   border-radius: 2rem;
 }
 
 .stats-minesLeft {
-  background-color: rebeccapurple;
+  background: rgb(64, 81, 181);
+  background: -moz-linear-gradient(
+    rgb(64, 81, 181) 0%,
+    rgb(64, 81, 181) 20%,
+    rgb(42, 54, 123) 70%,
+    rgb(23, 30, 69) 100%
+  );
+  background: -webkit-linear-gradient(
+    rgb(64, 81, 181) 0%,
+    rgb(64, 81, 181) 20%,
+    rgb(42, 54, 123) 70%,
+    rgb(23, 30, 69) 100%
+  );
+  background: linear-gradient(
+    rgb(64, 81, 181) 0%,
+    rgb(64, 81, 181) 20%,
+    rgb(42, 54, 123) 70%,
+    rgb(23, 30, 69) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#8400b9",endColorstr="#4a0962",GradientType=1);
+
+  color: #dbdada;
+
   padding: 0rem 3rem;
   border-radius: 2rem;
 }
@@ -92,7 +164,7 @@ div {
   height: 100vh;
   width: 100vw;
   justify-content: center;
-  background-color: rgba(101, 52, 153, 0.8);
+  background-color: rgba(252, 220, 166, 0.8);
   z-index: 10;
 }
 
@@ -120,7 +192,7 @@ button.startOverBtn {
   height: 100vh;
   width: 100vw;
   justify-content: center;
-  background-color: rgba(131, 86, 180, 1);
+  background-color: rgba(252, 220, 166, 0.9);
   z-index: 10;
 }
 .success h1 {
@@ -134,7 +206,6 @@ button.settingBtn {
   font-size: 1.5rem;
   padding: 1.5rem 2rem;
   border-radius: 1rem;
-  margin: 1rem 3rem;
 }
 
 .cell button {
@@ -143,9 +214,12 @@ button.settingBtn {
   min-height: 100%;
   min-width: 100%;
   padding: 0;
-  background-color: #998fd0;
+  background: rgb(252, 220, 166);
+  box-shadow: inset 0 0 7px 3px rgb(108, 82, 39);
+  -webkit-box-shadow: inset 0 0 7px 3px rgb(108, 82, 39);
+
   font-size: 0;
-  transition: all 0.5s;
+  transition: all 0.3s;
 }
 
 button.btn.flag {
@@ -160,6 +234,9 @@ button.btn.question {
   color: #dbce23;
   background-color: #484362;
 }
+button.btn.risk {
+  font-size: 0.5rem;
+}
 
 button:disabled,
 button[disabled],
@@ -167,7 +244,8 @@ button[disabled].btn.question,
 button[disabled].btn.flag,
 button[disabled].btn.regular {
   font-size: 2.5rem;
-  background-color: #d1c8ffc9;
+  background-color: rgb(252, 220, 166);
+  box-shadow: inset 0 0 0px 0px rgb(68, 8, 90);
 }
 
 .btn-choices {
@@ -201,18 +279,19 @@ button[disabled].btn.regular {
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  background: #b479f2;
+  background: rgba(252, 220, 166, 0.9);
   z-index: 15;
 }
 .settings-btns {
   position: absolute;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  padding: 37vw;
   align-items: center;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #653499e0;
+  background-color: rgba(252, 220, 166, 0.8);
   height: 100vh;
   width: 100vw;
   z-index: 10;
@@ -223,15 +302,34 @@ button[disabled].btn.regular {
   font-size: 3rem;
   margin: 2rem auto;
 }
+h3#top {
+  margin-bottom: 2rem;
+}
+
 .saveChanges-btn {
   margin: 3rem auto;
 }
+h2.explanation-details {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
 
-@media only screen and (max-width: 37.5em) {
-  /*  600px */
-  * {
-    font-size: 50%;
-  }
+h3.explanation-summary {
+  font-size: 3.5rem;
+}
+
+/* rank */
+.settingsItem-rank {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10vh;
+}
+img.rank {
+  width: 9rem;
+}
+h2.sec-text {
+  font-size: 2rem;
 }
 
 @media only screen and (max-width: 56.25em) {
@@ -239,11 +337,66 @@ button[disabled].btn.regular {
   * {
     font-size: 56.25%;
   }
+  .stats {
+    width: 90vw;
+  }
+
+  .settings-btns {
+    padding: 0;
+  }
   .settingsItem {
     width: 90vw;
   }
+
+  h1.welcome-title {
+    bottom: 0;
+    font-size: 3rem;
+  }
+
+  .welcome-img {
+    width: 100vw;
+  }
+
+  h2.explanation-details {
+    font-size: 2rem;
+  }
+
+  /* buttons */
+  button.settingBtn {
+    font-size: 2rem;
+  }
+
+  /* cell */
+  .cell {
+    min-height: 3rem;
+    min-width: 3rem;
+  }
+  button.btn.flag {
+    font-size: 2rem;
+  }
+  button.btn.question {
+    font-size: 2rem;
+  }
+
+  button:disabled,
+  button[disabled],
+  button[disabled].btn.question,
+  button[disabled].btn.flag,
+  button[disabled].btn.regular {
+    font-size: 2rem;
+  }
 }
 
+@media only screen and (max-width: 37.5em) {
+  /*  600px */
+  * {
+    font-size: 50%;
+  }
+  .cell button {
+    box-shadow: inset 0 0 4px 1px rgb(108, 82, 39);
+    -webkit-box-shadow: inset 0 0 4px 1px rgb(108, 82, 39);
+  }
+}
 @media only screen and(min-width: 112.5em) {
   /* 1800px */
   * {
