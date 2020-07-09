@@ -36,6 +36,21 @@ export const markCell = () => {
     };
 };
 
+export const flagToggle = (mat, flagToggle) => {
+    const flag = flagToggle === 1 ? 0 : 1
+    let tempMat = mat
+    tempMat = tempMat.map(row => {
+        return row.map(cell => {
+            cell.flagRisk = flagToggle === 1 ? 0 : 1
+            return cell
+        })
+    })
+    return {
+        type: boardTypes.FLAG_TOGGLE,
+        flag,
+        tempMat
+    };
+};
 const recCheckCell = (cellId, mat) => {
     checkCell(cellId.id, mat)
 }
@@ -127,14 +142,15 @@ export const checkCell = (cellId, mat) => {
     }
 
     else if (mat[res[0]][res[1]].value >= 15 && mat[res[0]][res[1]].mark !== 1) {
+        tempMat = failed(mat)
         return {
             type: boardTypes.FAILED,
+            tempMat
         };
     }
-
     return {
         type: boardTypes.CHECK_CELL,
-        payload: tempMat
+        payload: tempMat,
     };
 };
 
@@ -145,26 +161,27 @@ export const buildBoard = (size, lvl) => {
     const amountOfMines = lvl === 1 ? Math.ceil(0.12 * size * size)
         : lvl === 2 ? Math.ceil(0.2 * size * size)
             : Math.ceil(0.30 * size * size)
-    let matrix = [], mineLeft = amountOfMines;
+    let matrix = [], mineLeft = amountOfMines, amountOfCellToBeOpen = 0;
     for (let i = 0; i < size; i++) {
         matrix[i] = [];
         for (let j = 0; j < size; j++) {
-            matrix[i][j] = { id: `${i}|${j}`, mine: false, open: false, value: 0, mark: 0 };
+            matrix[i][j] = { id: `${i}|${j}`, mine: false, open: false, value: 0, mark: 0, flagRisk: 0 };
         }
     }
     while (!(mineLeft === 0)) {
         let randomLine = Math.ceil(Math.random() * size - 1), randomCol = Math.ceil(Math.random() * size - 1)
         if (!matrix[randomLine][randomCol].mine) { //if the cell is mine - find a new cell
-            matrix[randomLine][randomCol] = { id: `${randomLine}|${randomCol}`, mine: true, open: false, value: 15, mark: 0 };
+            matrix[randomLine][randomCol] = { id: `${randomLine}|${randomCol}`, mine: true, open: false, value: 15, mark: 0, flagRisk: 0 };
             mineLeft--
         }
     }
-
     checkAndSetCloseToMine(matrix, size)
+    amountOfCellToBeOpen = (size * size) - amountOfMines
     return {
         type: boardTypes.BUILD,
         action: matrix,
         amountOfMines,
+        amountOfCellToBeOpen
     };
 };
 
@@ -245,32 +262,40 @@ const checkAndSetCloseToMine = (mat, size) => {
 }
 
 //------------------GAME------------------------
-export const failed = () => {
-    return {
-        type: boardTypes.FAILED,
-    };
+export const failed = (mat) => {
+    let tempMat = mat
+    tempMat.map(row => {
+        return row.map(cell => {
+            if (cell.mine) {
+                cell.open = true
+                return cell
+            }
+            return cell
+        })
+    })
+    return tempMat
 };
 export const resetBoard = () => {
     return {
         type: boardTypes.RESET,
     };
 };
-export const finish = (mat, boardSize, amountOfMines) => {
+export const finish = (mat, boardSize, amountOfMines) => {// check if all mines are flagged or all available cells are open
     let finish = 1, amountOfOpenCells = 0, amountOfCells = boardSize * boardSize
     const intvalue = Math.ceil(amountOfMines);
 
     mat.map(row => {
         row.map(cell => {
             if (cell.mine) {
-                debugger
                 if (cell.mark !== 1)
                     finish = 0
             }
             else if (cell.open)
                 amountOfOpenCells++
+            return 0
         })
+        return 0
     })
-    debugger
     amountOfOpenCells = amountOfCells - amountOfOpenCells
     if (finish || intvalue === amountOfOpenCells) { // user put flag on all mines OR reviled all empty cells
         return {

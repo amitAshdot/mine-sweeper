@@ -10,7 +10,10 @@ import {
     resetSettings,
 } from '../../store/game/actions';
 import {
-    buildBoard
+    buildBoard,
+    resetBoard,
+    flagToggle
+
 } from '../../store/board/actions';
 const Settings = () => {
     const settings = useSelector(state => state.setting);
@@ -18,22 +21,24 @@ const Settings = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         let interval = null;
-        if (!settings.pause)
+        if (!settings.pause && !board.pause)
             interval = setInterval(() => {
                 dispatch(time());
             }, 1000);
         return () => clearInterval(interval);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [settings.pause])
+    }, [settings.pause, board.pause])
 
     const restartAll = () => {
         dispatch(buildBoard(board.size, board.lvl));
         dispatch(resetSettings())
+        dispatch(resetBoard())
+
     }
     const settingsAndPause = () => {
         dispatch(pause(settings.pause));
     }
-    const toggle = (
+    const toggleSettings = (
         settings.pause === 0 ?
             <div className='settings-toggle'>
                 <Button size="medium" variant="contained" color="primary" className='settingBtn' onClick={settingsAndPause}>
@@ -60,7 +65,12 @@ const Settings = () => {
                     {Math.ceil(board.amountOfMines)}
                 </div>
             </div>
-            {toggle}
+            <div className="stats" >
+                <GamepadButton text={'Start over'} onclick={() => restartAll()} />
+                {toggleSettings}
+                <GamepadButton text={'Flag'} onclick={() => dispatch(flagToggle(board.board, board.flagOnly))} />
+            </div>
+
         </div>
     )
 }

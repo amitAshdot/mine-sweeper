@@ -22,8 +22,6 @@ const Board = props => {
             dispatch(buildBoard(board.size, board.lvl));
             dispatch(loading());
         }
-
-
         return () => null
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [board.lvl, board.size])
